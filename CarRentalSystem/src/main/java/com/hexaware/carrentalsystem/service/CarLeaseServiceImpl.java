@@ -376,8 +376,14 @@ public class CarLeaseServiceImpl implements ICarLeaseService {
         if (customer.getFirstName() == null || customer.getFirstName().trim().isEmpty()) {
             throw new InvalidCustomerDataException("First name cannot be null or empty.\n");
         }
+        if (!customer.getFirstName().matches("[a-zA-Z]+")) {
+            throw new InvalidCustomerDataException("First name should contain only alphabets (A-Z, a-z).\n");
+        }
         if (customer.getLastName() == null || customer.getLastName().trim().isEmpty()) {
             throw new InvalidCustomerDataException("Last name cannot be null or empty.\n");
+        }
+        if (!customer.getLastName().matches("[a-zA-Z]+")) {
+            throw new InvalidCustomerDataException("Last name should contain only alphabets (A-Z, a-z).\n");
         }
         if (customer.getEmail() == null || customer.getEmail().trim().isEmpty()) {
             throw new InvalidCustomerDataException("Email cannot be null or empty.\n");
