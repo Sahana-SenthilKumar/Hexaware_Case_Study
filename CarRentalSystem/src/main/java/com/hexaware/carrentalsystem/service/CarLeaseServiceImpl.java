@@ -188,6 +188,11 @@ public class CarLeaseServiceImpl implements ICarLeaseService {
         	throw new CarNotFoundException("Car not found with id: " + carId +"\n");
         }
         
+        Vehicle car = dao.findCarById(carId);
+        if (!"available".equalsIgnoreCase(car.getStatus())) {
+            throw new InvalidLeaseDataException("Car with id " + carId + " is not available for lease.\n");
+        }
+        
         // Determine type first
         LocalDate start = startDate.toLocalDate();
         LocalDate end = endDate.toLocalDate();

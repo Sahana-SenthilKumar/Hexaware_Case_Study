@@ -34,7 +34,7 @@ public class CarLeaseServiceTest {
     @Test
     public void testCreateLease_Success() {
         int customerId = 101; // Must exist in DB
-        int carId = 1;       // Must exist & be available
+        int carId = 2;       // Must exist & be available
 
         Date start = Date.valueOf(LocalDate.now());
         Date end = Date.valueOf(LocalDate.now().plusDays(10));

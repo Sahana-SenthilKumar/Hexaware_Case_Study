@@ -82,7 +82,7 @@ public class CRSMainModule {
                         	year = sc.nextInt(); sc.nextLine();
                         }
                         catch(Exception e) {
-                        	System.out.println("Invalid year format.");
+                        	System.err.println("Invalid year format.");
                         }
                         System.out.println("Daily Rate ($): ");
                         double rate = sc.nextDouble(); sc.nextLine();
@@ -96,17 +96,17 @@ public class CRSMainModule {
                         Vehicle car = new Vehicle(0, make, model, year, rate, status, pc, ec);
                         boolean result = service.addCar(car);
                         if (result)
-                            System.out.println("Car added successfully.\n-----------------------");
+                            System.out.println("\nCar added successfully.\n-----------------------");
 
                     } 
                     catch (InvalidCarDataException e) {
-                        System.out.println("\nInvalid Car Data: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("\nInvalid Car Data: " + e.getMessage() + "\n-----------------------");
                     } 
                     catch (DuplicateCarException e) {
-                        System.out.println("\nDuplicate Car: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("\nDuplicate Car: " + e.getMessage() + "\n-----------------------");
                     } 
                     catch (Exception e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------");
                     }
                     break;
 
@@ -127,7 +127,7 @@ public class CRSMainModule {
                         	year = sc.nextInt(); sc.nextLine();
                         }
                         catch(Exception e) {
-                        	System.out.println("Invalid year format.");
+                        	System.err.println("Invalid year format.");
                         }
                         System.out.println("Daily Rate ($): ");
                         double rate = sc.nextDouble(); sc.nextLine();
@@ -145,13 +145,13 @@ public class CRSMainModule {
 
                     } 
                     catch (CarNotFoundException e) {
-                        System.out.println("\nCar Not Found: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("\nCar Not Found: " + e.getMessage() + "\n-----------------------");
                     } 
                     catch (InvalidCarDataException e) {
-                        System.out.println("\nInvalid Car Data: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("\nInvalid Car Data: " + e.getMessage() + "\n-----------------------");
                     } 
                     catch (Exception e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------");
                     }
                     break;
 
@@ -165,10 +165,10 @@ public class CRSMainModule {
 
                     } 
                     catch (CarNotFoundException e) {
-                        System.out.println("\nCar Not Found: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("\nCar Not Found: " + e.getMessage() + "\n-----------------------");
                     } 
                     catch (Exception e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------");
                     }
                     break;
 
@@ -190,10 +190,10 @@ public class CRSMainModule {
 
                     } 
                     catch (CarNotFoundException e) {
-                        System.out.println("Car Not Found: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("Car Not Found: " + e.getMessage() + "\n-----------------------");
                     } 
                     catch (Exception e) {
-                        System.out.println("Error: " + e.getMessage() + "\n-----------------------");
+                        System.err.println("Error: " + e.getMessage() + "\n-----------------------");
                     }
                     break;
 
@@ -312,7 +312,7 @@ public class CRSMainModule {
                         }
                     } 
                     catch (InvalidCustomerDataException | DuplicateCustomerException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -326,7 +326,7 @@ public class CRSMainModule {
                         }
                     } 
                     catch (CustomerNotFoundException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -351,7 +351,7 @@ public class CRSMainModule {
                         }
                     } 
                     catch (CustomerNotFoundException | InvalidCustomerDataException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -370,7 +370,7 @@ public class CRSMainModule {
                         System.out.println("-----------------------------");
                     } 
                     catch (CustomerNotFoundException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -438,7 +438,7 @@ public class CRSMainModule {
                         	sd = Date.valueOf(sc.nextLine());
                         }
                         catch(Exception e) {
-                        	System.out.println("Invalid date format.");
+                        	System.err.println("Invalid date format.");
                         }
                         System.out.print("Enter End Date (yyyy-mm-dd): ");
                         Date ed = null;
@@ -446,14 +446,14 @@ public class CRSMainModule {
                         	ed =Date.valueOf(sc.nextLine());
                         }
                         catch(Exception e) {
-                        	System.out.println("Invalid date format.");
+                        	System.err.println("Invalid date format.");
                         }
                         
                         Lease lease = service.createLease(cid, carid, sd, ed);
                         System.out.println("\nLease created with ID: " + lease.getLeaseId() + "\n-----------------------------");
                     } 
                     catch (CustomerNotFoundException | CarNotFoundException | InvalidLeaseDataException | LeaseNotFoundException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -474,7 +474,7 @@ public class CRSMainModule {
                         System.out.println("-----------------------------\n");
                     } 
                     catch (LeaseNotFoundException | CarNotFoundException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -494,7 +494,7 @@ public class CRSMainModule {
                         System.out.println("-----------------------------");
                     } 
                     catch (LeaseNotFoundException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -546,7 +546,7 @@ public class CRSMainModule {
                         System.out.println("\nTotal cost for Lease ID " + lease.getLeaseId() + ": $" + totalCost + "\n-----------------------------");
                     } 
                     catch (LeaseNotFoundException | CarNotFoundException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -595,7 +595,7 @@ public class CRSMainModule {
                         }
                     } 
                     catch (LeaseNotFoundException | InvalidPaymentDataException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
@@ -621,7 +621,7 @@ public class CRSMainModule {
                         }
                     } 
                     catch (CustomerNotFoundException e) {
-                        System.out.println("\nError: " + e.getMessage() + "\n-----------------------------");
+                        System.err.println("\nError: " + e.getMessage() + "\n-----------------------------");
                     }
                     break;
 
